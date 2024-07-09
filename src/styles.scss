@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+.form-input {
+  @apply block w-full rounded py-1.5 text-gray-900 shadow-sm appearance-none ring-1 ring-inset  placeholder:text-gray-400 sm:text-sm border-0 sm:leading-6 focus:ring-2 focus:ring-inset focus:ring-indigo-600  ring-gray-300 #{!important};
+  &.success {
+    @apply mb-3 border border-green-500 focus:ring-2 focus:ring-inset focus:ring-green-500 focus:border-green-500 ring-green-300 #{!important};
+  }
+
+  & + p {
+    @apply text-red-500 text-xs italic hidden #{!important};
+  } 
+}
+
+label.form-label {
+  @apply block text-sm font-medium leading-6 text-gray-900 #{!important};
+}
+.hasError {
+  .form-input {
+    @apply border-0 sm:leading-6 ring-2 ring-inset focus:ring-red-600 ring-red-600 #{!important};
+
+    & + p {
+      @apply block #{!important};
+    }
+  }
+  
+  label.form-label {
+    @apply text-red-500 #{!important};
+  }
+}
+
+.hasSuccess {
+  .form-input {
+    @apply border-0 sm:leading-6 ring-2 ring-inset focus:ring-green-600 ring-green-600 #{!important};
+
+    & + p {
+      @apply block;
+    }
+  }
+  
+  label.form-label {
+    @apply text-green-500 #{!important};
+  }
+}
+
+.title{
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

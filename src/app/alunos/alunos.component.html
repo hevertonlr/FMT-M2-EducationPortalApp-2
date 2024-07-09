@@ -1,0 +1,111 @@
+<div class="isolate px-6 lg:px-0">
+    <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">Alunos</h2>
+    <p class="mt-1 text-sm leading-6 text-gray-600">Listagem de todos os Alunos cadastrados</p>
+    <div class="mt-4 pb-6 border-b-2 border-b-gray-300">
+        <label for="search">Filtrar</label>
+        <div class="pt-2 mb-2 relative mx-auto text-gray-600">
+            <input (keydown.enter)="onSearch()" class="border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none form-input"
+                type="search" name="search" [(ngModel)]="searchInput" placeholder="Nome ou E-mail">
+            <button type="submit" (click)="onSearch()" class="absolute right-0 top-0 mt-5 mr-4">
+                <svg class="text-gray-600 h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px"
+                    viewBox="0 0 56.966 56.966" style="enable-background:new 0 0 56.966 56.966;" xml:space="preserve"
+                    width="512px" height="512px">
+                    <path
+                        d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z" />
+                </svg>
+            </button>
+        </div>
+    </div>
+    <table class="table-auto min-w-full divide-gray-300">
+        <!--
+        asg att aui avq awg awm ayb chl
+        py-3.5 pl-4 pr-3 text-start text-sm font-semibold text-gray-900 sm:pl-0
+        md arl asg avq awg awm ayb cwl
+        hidden px-3 py-3.5 text-start text-sm font-semibold text-gray-900 lg:table-cell
+        md arl asg avq awg awm ayb byv
+           arl asg avq awg awm ayb
+            ab asg                     ats auk chs
+
+            tu ub asi att aui awg awk ayb cal caw chl
+
+        asg = py-3.5
+        avq = text-start
+        awg = text-sm
+        awm = font-semibold
+        ayb = text-gray-900
+        arl = px-3
+        cwl = lg:table-cell
+        byv = sm:table-cell
+        md = hidden
+        chs = sm:pr-0
+        auk = pr-4
+        ats = pl-3
+        ab = relative
+        aco = divide-gray-300
+        acj = divide-y
+        alt = bg-white
+        tu = w-full
+        ub = max-w-0
+        asi = py-4
+        att = pl-4
+        aui = pr-3
+        awk = font-medium
+        cal = sm:w-auto
+        caw = sm:max-w-none
+        chl = sm:pl-0
+        awl = font-normal
+        cwo = lg:hidden
+        ku = mt-1
+        ads = truncate
+        axz = text-gray-700
+        byy = sm:hidden
+        axx = text-gray-500
+        ayn = text-indigo-600
+        bll = hover:text-indigo-900
+        asi = py-4
+        ats = pl-3
+        auk = pr-4
+        avs = text-end
+-->
+        <thead>
+            <tr>
+                <th scope="col" class="py-3.5 pl-4 pr-3 text-start text-sm font-semibold text-gray-900 sm:pl-0">Nome
+                </th>
+                <th scope="col" class="hidden px-3 py-3.5 text-start text-sm font-semibold text-gray-900 lg:table-cell">
+                    CPF</th>
+                <th scope="col" class="hidden px-3 py-3.5 text-start text-sm font-semibold text-gray-900 md:table-cell">
+                    E-mail</th>
+                <th scope="col" class="hidden px-3 py-3.5 text-start text-sm font-semibold text-gray-900 sm:table-cell">
+                    Celular</th>
+                <th scope="col" class="px-3 py-3.5 text-start text-sm font-semibold text-gray-900">Curso</th>
+                <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-0"><span class="title">Edit</span></th>
+            </tr>
+        </thead>
+        <tbody class="divide-gray-300 divide-y bg-white">
+            <tr *ngFor="let aluno of alunosFiltrados$ | async alunosFiltrados">
+                <td
+                    class="w-full max-w-0 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:w-auto sm:max-w-none sm:pl-0">
+                    {{aluno.nomeCompleto}}
+                    <dl class="font-normal lg:hidden">
+                        <dt class="title">CPF</dt>
+                        <dd class="mt-1 truncate text-gray-700">{{aluno.cpf}}</dd>
+                        <dt class="title md:hidden">E-mail</dt>
+                        <dd class="mt-1 truncate text-gray-500 md:hidden">{{aluno.email}}</dd>
+                        <dt class="title sm:hidden">Celular</dt>
+                        <dd class="mt-1 truncate text-gray-500 sm:hidden">{{aluno.celular}}</dd>
+                    </dl>
+                </td>
+                <td class="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">{{aluno.cpf}}</td>
+                <td class="hidden px-3 py-4 text-sm text-gray-500 md:table-cell">{{aluno.email}}</td>
+                <td class="hidden px-3 py-4 text-sm text-gray-500 sm:table-cell">{{aluno.celular}}</td>
+                <td class="px-3 py-4 text-sm text-gray-500">{{aluno.curso.nome}}</td>
+                <td class="py-4 pl-3 pr-4 text-end text-sm font-medium sm:pr-0">
+                    <button (click)="onEdit(aluno)" type="button" class="rounded-md bg-indigo-600 px-2 py-1 text-xs font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Editar<span class="title">, {{aluno.nomeCompleto}}</span></button>
+                    <button (click)="onDelete(aluno)" type="button" class="rounded-md bg-red-600 px-2 py-1 text-xs font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600 ml-1">Remover<span class="title">, {{aluno.nomeCompleto}}</span></button>
+                </td>
+                
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,9 @@
+<app-sidebar *ngIf="router.url !== '/login'"></app-sidebar>
+<div [ngClass]="{ 'lg:pl-72': router.url !== '/login' }">
+    <app-header *ngIf="router.url !== '/login'"></app-header>
+    <main class="py-10">
+        <div class="lg:px-8">
+            <router-outlet></router-outlet>
+        </div>
+    </main>
+</div>
