@@ -11,12 +11,14 @@ import { Router, RouterModule } from '@angular/router';
 import Swal from 'sweetalert2';
 import { AuthService } from '../../shared/services/auth.service';
 import { FuncsService } from '../../shared/services/funcs.service';
+import { MatFormFieldModule  } from '@angular/material/form-field'
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'login',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule, ReactiveFormsModule],
-  templateUrl: './login.component.html',
+  imports: [CommonModule, FormsModule, RouterModule, ReactiveFormsModule, MatInputModule, MatFormFieldModule],
+  templateUrl: './login_material.component.html',
   styleUrl: './login.component.scss',
 })
 export class LoginComponent {
