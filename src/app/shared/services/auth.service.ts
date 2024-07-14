@@ -1,27 +1,25 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-
 import { environment } from '../../../environments/environment';
 import sign from 'jwt-encode';
 import { jwtDecode } from 'jwt-decode';
 import { catchError, map, Observable, of } from 'rxjs';
+import { UsuariosService } from './usuarios.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private isAuthenticated = false;
-  private readonly API_URL = 'http://192.168.254.6:3000/';
   private readonly TOKEN_KEY = 'fmt-m2-educationportalapp';
   private readonly PRIVATE_KEY = environment.privateKey;
   private readonly PUBLIC_KEY = environment.publicKey; 
+  private isAuthenticated = false;
 
-  constructor(private http: HttpClient) {
+  constructor(private usuariosService: UsuariosService) {
     this.isAuthenticated = !!sessionStorage.getItem(this.TOKEN_KEY);
   }
 
   login = (email: string, password: string): Observable<boolean>  => {
-    return this.http.get(this.API_URL + `users?email=${encodeURIComponent(email)}`)
+    return this.usuariosService.getUser(email)
     .pipe(
       map((response: any) => { 
         const user = response[0];
@@ -34,6 +32,7 @@ export class AuthService {
           username: user.username,
           email: user.email,
           image: 'assets/images/'+user.image,
+          admin: user.admin
         });
         this.setToken(token);
         return true;
@@ -48,23 +47,10 @@ export class AuthService {
     return true;
   }
 
-  getUser = (email: string, password: string) =>
-    this.http
-      .get(this.API_URL + `users?email=${encodeURIComponent(email)}`)
-      .subscribe((response: any) => response[0]);
+  
 
-  logout(): void {
-    this.clearToken();
-  }
-
-  isAuthenticatedUser(): boolean {
-    return this.isAuthenticated;
-  }
-
-  private setToken(token: string) {
-    this.isAuthenticated = true;
-    sessionStorage.setItem(this.TOKEN_KEY, token);
-  }
+  logout = (): void => this.clearToken();
+  isAuthenticatedUser = (): boolean => this.isAuthenticated;
 
   getTokenContent = <T>() => {
     const storageContent = sessionStorage.getItem(this.TOKEN_KEY);
@@ -72,8 +58,12 @@ export class AuthService {
     return this.readJwtToken<T>(storageContent);
   }
   
+  private setToken = (token: string) => {
+    this.isAuthenticated = true;
+    sessionStorage.setItem(this.TOKEN_KEY, token);
+  }
 
-  private clearToken() {
+  private clearToken = () => {
     sessionStorage.removeItem(this.TOKEN_KEY);
     this.isAuthenticated = false;
   }

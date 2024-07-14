@@ -18,56 +18,6 @@
         </div>
     </div>
     <table class="table-auto min-w-full divide-gray-300">
-        <!--
-        asg att aui avq awg awm ayb chl
-        py-3.5 pl-4 pr-3 text-start text-sm font-semibold text-gray-900 sm:pl-0
-        md arl asg avq awg awm ayb cwl
-        hidden px-3 py-3.5 text-start text-sm font-semibold text-gray-900 lg:table-cell
-        md arl asg avq awg awm ayb byv
-           arl asg avq awg awm ayb
-            ab asg                     ats auk chs
-
-            tu ub asi att aui awg awk ayb cal caw chl
-
-        asg = py-3.5
-        avq = text-start
-        awg = text-sm
-        awm = font-semibold
-        ayb = text-gray-900
-        arl = px-3
-        cwl = lg:table-cell
-        byv = sm:table-cell
-        md = hidden
-        chs = sm:pr-0
-        auk = pr-4
-        ats = pl-3
-        ab = relative
-        aco = divide-gray-300
-        acj = divide-y
-        alt = bg-white
-        tu = w-full
-        ub = max-w-0
-        asi = py-4
-        att = pl-4
-        aui = pr-3
-        awk = font-medium
-        cal = sm:w-auto
-        caw = sm:max-w-none
-        chl = sm:pl-0
-        awl = font-normal
-        cwo = lg:hidden
-        ku = mt-1
-        ads = truncate
-        axz = text-gray-700
-        byy = sm:hidden
-        axx = text-gray-500
-        ayn = text-indigo-600
-        bll = hover:text-indigo-900
-        asi = py-4
-        ats = pl-3
-        auk = pr-4
-        avs = text-end
--->
         <thead>
             <tr>
                 <th scope="col" class="py-3.5 pl-4 pr-3 text-start text-sm font-semibold text-gray-900 sm:pl-0">Nome
@@ -99,7 +49,7 @@
                 <td class="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">{{aluno.cpf}}</td>
                 <td class="hidden px-3 py-4 text-sm text-gray-500 md:table-cell">{{aluno.email}}</td>
                 <td class="hidden px-3 py-4 text-sm text-gray-500 sm:table-cell">{{aluno.celular}}</td>
-                <td class="px-3 py-4 text-sm text-gray-500">{{aluno.curso.nome}}</td>
+                <td class="px-3 py-4 text-sm text-gray-500">{{aluno.cursonome}}</td>
                 <td class="py-4 pl-3 pr-4 text-end text-sm font-medium sm:pr-0">
                     <button (click)="onEdit(aluno)" type="button" class="rounded-md bg-indigo-600 px-2 py-1 text-xs font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Editar<span class="title">, {{aluno.nomeCompleto}}</span></button>
                     <button (click)="onDelete(aluno)" type="button" class="rounded-md bg-red-600 px-2 py-1 text-xs font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600 ml-1">Remover<span class="title">, {{aluno.nomeCompleto}}</span></button>

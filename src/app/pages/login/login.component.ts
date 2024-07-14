@@ -9,8 +9,8 @@ import {
 } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import Swal from 'sweetalert2';
-import { AuthService } from '../shared/services/auth.service';
-import { FuncsService } from '../shared/services/funcs.service';
+import { AuthService } from '../../shared/services/auth.service';
+import { FuncsService } from '../../shared/services/funcs.service';
 
 @Component({
   selector: 'login',
