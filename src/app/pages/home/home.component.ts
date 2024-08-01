@@ -1,5 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatCardModule} from '@angular/material/card';
+import {MatChipsModule} from '@angular/material/chips';
 
 interface Activity {
   title: string;
@@ -20,8 +23,8 @@ interface ExtraCourse {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
-  templateUrl: './home.component.html',
+  imports: [CommonModule,MatCardModule, MatChipsModule, MatProgressBarModule],
+  templateUrl: './home_material.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
