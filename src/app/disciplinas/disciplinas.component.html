@@ -4,7 +4,6 @@
     <div class="pt-2 mb-2">
     <label class="form-label" for="curso">Curso:</label>
     <select  [(ngModel)]="cursoId" (ngModelChange)="onSelectChange()" class="form-input" id="curso" name="curso" required>
-        <option value="" disabled selected>Selecione um Curso</option>
         <option *ngFor="let curso of cursos$ | async cursos" [value]="curso.id">{{ curso.nome }}</option>
       </select>
     </div>

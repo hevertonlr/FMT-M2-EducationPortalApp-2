@@ -4,7 +4,7 @@
       "id": "1",
       "username": "alice",
       "email": "alice@example.com",
-      "password": "qwe123",
+      "password": "hashed_password_1",
       "image": "profile1.jpg",
       "admin": false
     },
@@ -12,7 +12,7 @@
       "id": "2",
       "username": "bob",
       "email": "bob@example.com",
-      "password": "qwe123",
+      "password": "hashed_password_2",
       "image": "profile2.jpg",
       "admin": false
     },
@@ -32,7 +32,10 @@
       "cpf": "123.456.789-00",
       "email": "joao@gmail.com",
       "celular": "99999-9999",
-      "curso": "4"
+      "curso": {
+        "id": "4",
+        "nome": "Administração"
+      }
     },
     {
       "id": "2",
@@ -40,7 +43,10 @@
       "cpf": "987.654.321-00",
       "email": "maria@gmail.com",
       "celular": "88888-8888",
-      "curso": "1"
+      "curso": {
+        "id": "1",
+        "nome": "Engenharia de Software"
+      }
     },
     {
       "id": "0749",
@@ -48,7 +54,10 @@
       "cpf": "asdq",
       "email": "te@tt",
       "celular": "adqsd",
-      "curso": "1"
+      "curso": {
+        "id": "1",
+        "nome": "Engenharia de Software"
+      }
     }
   ],
   "cursos": [

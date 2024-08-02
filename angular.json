@@ -17,10 +17,6 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "allowedCommonJsDependencies": [
-              "sweetalert2",
-              "jwt-encode"
-            ],
             "outputPath": "dist/fmt-m2-education-portal-app",
             "index": "src/index.html",
             "browser": "src/main.ts",

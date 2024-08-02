@@ -9,11 +9,11 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-import { AlunosService } from '../../shared/services/alunos.service';
-import { FuncsService } from '../../shared/services/funcs.service';
+import { AlunosService } from '../shared/services/alunos.service';
+import { FuncsService } from '../shared/services/funcs.service';
 import { Observable } from 'rxjs';
-import { CursoModel } from '../../shared/models/curso.model';
-import { CursosService } from '../../shared/services/cursos.service';
+import { CursoModel } from '../shared/models/curso.model';
+import { CursosService } from '../shared/services/cursos.service';
 
 @Component({
   selector: 'app-cadastro-aluno',
@@ -26,7 +26,7 @@ export class CadastroAlunoComponent implements OnInit {
   alunoForm: FormGroup;
   alunoEdit: any;
   cursos$!: Observable<CursoModel[]>;
-  
+  //cursos: string[] = ['Curso A', 'Curso B', 'Curso C'];
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -43,7 +43,7 @@ export class CadastroAlunoComponent implements OnInit {
       curso: ['', Validators.required],
     });
     this.funcService.form = this.alunoForm;
-    this.cursos$ = this.cursosService.getCursos();
+    this.cursos$ = cursosService.getCursos();
   }
 
   ngOnInit() {

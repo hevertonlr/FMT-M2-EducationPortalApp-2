@@ -3,10 +3,9 @@ import { Component } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-import { AlunoModel } from '../../shared/models/aluno.model';
+import { AlunoModel } from '../shared/models/aluno.model';
 import { map, Observable } from 'rxjs';
-import { AlunosService } from '../../shared/services/alunos.service';
-import { CursosService } from '../../shared/services/cursos.service';
+import { AlunosService } from '../shared/services/alunos.service';
 
 
 
@@ -22,11 +21,11 @@ export class AlunosComponent {
   alunos$!: Observable<AlunoModel[]>;
   alunosFiltrados$!: Observable<AlunoModel[]>;
 
-  constructor(private router: Router,private alunosService: AlunosService,public cursoService: CursosService) {
-    this.alunos$ = this.alunosService.getAlunosWithCursoNome();
+  constructor(private router: Router,private alunosService: AlunosService) {
+    this.alunos$ = alunosService.getAlunos();
     this.alunosFiltrados$ = this.alunos$;
   }
-
+  
     
   onSearch = () => {
     if (!this.searchInput) {
